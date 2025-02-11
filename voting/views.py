@@ -64,4 +64,8 @@ def register_view(request):
 def logout_view(request):
     logout(request)
     return redirect('home')
-
+@login_required
+def delete_election(request, election_id):
+    election = get_object_or_404(Election, id=election_id)
+    election.delete()
+    return redirect('list_elections') 

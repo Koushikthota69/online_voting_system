@@ -1,0 +1,32 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #343a40 !important;
+    padding: 15px;
+}
+.navbar .navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+.navbar .nav-link {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+.navbar .nav-link:hover {
+    color: #17a2b8 !important;
+    text-decoration: underline;
+}
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}

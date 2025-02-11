@@ -1,12 +1,15 @@
 {% extends 'voting/base.html' %}
 {% block content %}
 <div class="container">
-    <h2 class="mb-3">Available Elections</h2>
+    <h2>Available Elections</h2>
     <div class="list-group">
         {% for election in elections %}
-            <a href="{% url 'vote' election.id %}" class="list-group-item list-group-item-action">
-                {{ election.name }}
-            </a>
+            <div class="d-flex justify-content-between align-items-center list-group-item">
+                <a href="{% url 'vote' election.id %}">{{ election.name }}</a>
+                {% if user.is_superuser %}
+                    <a href="{% url 'delete_election' election.id %}" class="btn btn-danger btn-sm">Delete</a>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
 </div>

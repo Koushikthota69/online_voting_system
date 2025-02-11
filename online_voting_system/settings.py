@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-_io2a)qgsxt_3!6x03%yehleyq&x=7kg_$&#$zx3jx!t(uonu9
 DEBUG = True
 
 ALLOWED_HOSTS = []
+LOGIN_URL = '/login/'
 
 
 # Application definition
@@ -122,3 +123,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
