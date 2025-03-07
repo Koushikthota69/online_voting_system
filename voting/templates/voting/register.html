@@ -1,24 +1,34 @@
 {% extends 'voting/base.html' %}
+
 {% block content %}
 <div class="container">
     <h2>Register</h2>
     <form method="post">
         {% csrf_token %}
+        
         <div class="mb-3">
-            <label class="form-label">Username</label>
+            <label class="form-label" for="username">Username</label>
             <input type="text" name="username" class="form-control" required>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">Email</label>
+            <label class="form-label" for="email">Email</label>
             <input type="email" name="email" class="form-control" required>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">Password</label>
+            <label class="form-label" for="password">Password</label>
             <input type="password" name="password" class="form-control" required>
         </div>
+
         <div class="mb-3">
-            <label class="form-label">Confirm Password</label>
-            <input type="password" name="repassword" class="form-control" required>
+            <label class="form-label" for="confirm_password">Confirm Password</label>
+            <input type="password" name="confirm_password" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="college_id">College ID</label>
+            <input type="text" name="college_id" class="form-control" required>
         </div>
 
         {% if form.errors %}
@@ -38,3 +48,5 @@
     </form>
 </div>
 {% endblock %}
+
+

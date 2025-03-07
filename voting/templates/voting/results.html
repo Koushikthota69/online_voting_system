@@ -1,11 +1,28 @@
 {% extends 'voting/base.html' %}
 {% block content %}
-<div class="container">
+<div class="container results-container">
     <h2>Results for {{ election.name }}</h2>
-    <ul class="list-group">
-        {% for vote in votes %}
-            <li class="list-group-item">{{ vote.candidate.name }} - {{ vote.candidate.party }}</li>
+    <ul id="results-list" class="list-group">
+        {% for candidate in election.candidate_set.all %}
+            <li class="list-group-item">
+                <strong>{{ candidate.name }} ({{ candidate.party }})</strong>
+                - <span id="votes-{{ candidate.id }}">{{ candidate.vote_set.count }}</span> votes
+            </li>
         {% endfor %}
     </ul>
 </div>
+
+<script>
+    function updateResults() {
+        fetch("{% url 'results' election.id %}")
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(candidate => {
+                document.getElementById(`votes-${candidate.id}`).textContent = candidate.votes;
+            });
+        });
+    }
+
+    setInterval(updateResults, 5000);  // Update every 5 seconds
+</script>
 {% endblock %}

@@ -30,3 +30,12 @@ body {
     outline: none;
     box-shadow: none;
 }
+/* Dark Mode Toggle */
+.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+.dark-mode .navbar {
+    background-color: #222 !important;
+}
+
